@@ -28,10 +28,13 @@ class Database_Engine():
 
         if debug_mode:
             conn = sqlite3.connect(':memory:')  # Stores the db in memory so always fresh and always resets after use
+            print(f"Virtual database has been connected to")
         else:
             conn =  sqlite3.connect(db_path)
+            print(f"Live database has been connected to at {db_path}")
 
         self.configure_connection(conn)
+        print("Database has been configured")
 
         return conn
 
